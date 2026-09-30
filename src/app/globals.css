@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #FFF5F8;
+    --foreground: #4A2838;
+    --soft-pink: #FF85A1;
+    --rose-accent: #E63968;
+    --peach-accent: #FFD4BA;
+    --lavender-accent: #EBD4F4;
+    --cream: #FFFDF9;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+  }
+
+  body {
+    background: linear-gradient(180deg, #FFF7F9 0%, #FFF0F5 45%, #FBF0FA 80%, #FFF5F7 100%);
+    color: #4A2838;
+    font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: var(--font-serif), Georgia, serif;
+  }
+}
+
+/* Cute soft scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFF0F5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 133, 161, 0.4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(230, 57, 104, 0.6);
+}
+
+/* Romantic Card Styles */
+.romantic-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(255, 182, 193, 0.35);
+  box-shadow: 0 12px 35px -8px rgba(230, 57, 104, 0.08), 0 4px 12px rgba(255, 133, 161, 0.05);
+  border-radius: 1.75rem;
+}
+
+.romantic-card-hover {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.romantic-card-hover:hover {
+  border-color: rgba(255, 117, 143, 0.6);
+  box-shadow: 0 20px 45px -10px rgba(230, 57, 104, 0.16), 0 8px 20px rgba(255, 133, 161, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Gradients */
+.bg-romantic-gradient {
+  background: linear-gradient(135deg, #FFE4EC 0%, #FFDFD3 50%, #F5E6FF 100%);
+}
+
+.bg-button-gradient {
+  background: linear-gradient(135deg, #FF6584 0%, #FF758F 50%, #FF8FA3 100%);
+  color: #FFFFFF;
+  box-shadow: 0 8px 24px -4px rgba(255, 101, 132, 0.4);
+}
+
+.bg-button-gradient:hover {
+  background: linear-gradient(135deg, #F43F5E 0%, #FF6584 50%, #FF85A1 100%);
+  box-shadow: 0 12px 28px -4px rgba(255, 101, 132, 0.55);
+}
+
+.text-gradient-rose {
+  background: linear-gradient(135deg, #E63968 0%, #D81B60 50%, #C2185B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-sunset {
+  background: linear-gradient(135deg, #E63968 0%, #FF6B8B 50%, #FFA07A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Floating animation keyframes */
+@keyframes heartFloatUp {
+  0% {
+    transform: translateY(105vh) translateX(0) scale(0.8);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.7;
+  }
+  85% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(var(--drift-x, 20px)) scale(1.1);
+    opacity: 0;
+  }
+}
+
+.animate-heart-float {
+  animation: heartFloatUp var(--duration, 8s) ease-in infinite;
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
